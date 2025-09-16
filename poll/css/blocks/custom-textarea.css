@@ -1,0 +1,39 @@
+.custom-textarea {
+    position: relative;
+    width: 100%;
+}
+
+.custom-textarea__field {
+    width: 100%;
+    min-height: 128px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.15);
+    font-size: 18px;
+    line-height: 24px;
+    padding: 16px 16px 16px 52px;
+}
+
+.custom-textarea__field:hover,
+.custom-textarea__field:focus-visible {
+    background-color: rgba(111, 181, 130, 0.15);
+}
+
+.custom-texarea__field::placeholder {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.custom-textarea__icon {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+.custom-textarea__field:hover + .custom-textarea__icon,
+.custom-textarea__field:focus-visible + .custom-textarea__icon {
+    color: #87f29f;
+}

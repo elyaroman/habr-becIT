@@ -1,0 +1,61 @@
+.btn {
+    width: 100%;
+    border-radius: 28px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+    text-align: center;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    border-color: #000;
+}
+
+.btn--active.btn--lilac {
+    background-color: #afa3ff;
+}
+
+.btn--lilac:hover,
+.btn--lilac:focus-visible {
+    background-color: #998cf1;
+}
+
+.btn--active.btn--green {
+    background-color: #87f29a;
+}
+
+.btn--green:hover,
+.btn--green:focus-visible {
+    background-color: #78df8a;
+}
+
+.btn--active.btn--yellow {
+    background-color: #ffc61f;
+}
+
+.btn--yellow:hover,
+.btn--yellow:focus-visible {
+    background-color: #f2b913;
+}
+
+.btn--large {
+    width: auto;
+    border-radius: 40px;
+    padding: 46px;
+    border-color: #87f29a;
+    background-color: #87f29a;
+    font-family: "Press Start 2P", "Arial", sans-serif;
+    font-size: 24px;
+}
+
+.btn--large:hover,
+.btn--large:focus-visible {
+    background-color: #78df8a;
+}

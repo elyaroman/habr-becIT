@@ -1,0 +1,130 @@
+.poll-form__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: counter;
+}
+
+.poll-form__item {
+    color: #fff;
+    padding-bottom: 80px;
+    counter-increment: counter;
+    position: relative;
+}
+
+.poll-form__item:nth-child(n+2) {
+    padding-top: 80px;
+}
+
+.poll-form__item--white {
+    background-color: #fff;
+    color: #000;
+}
+
+.poll-form__item-title {
+    font-family: "Press Start 2P", "Arial", serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    min-height: 60px;
+    display: flex;
+    align-items: center; 
+    padding-left: 84px;
+    margin: 0 0 32px;
+    position: relative;
+}
+
+.poll-form__item-title::before {
+    content: counter(counter);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #87f29a;
+    font-size: 22px;
+    line-height: 36px;
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poll-form__item--white .poll-form__item-title::before {
+    background-color: #000;
+    color: #87f29a;
+}
+
+.poll-form__icon-arrow {
+    color: #000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+}
+
+.poll-form__questions {
+    display: grid;
+    grid-template-columns: 500px 152px 500px;
+    gap: 28px 24px;
+}
+
+.poll-form__group--wide {
+    grid-column: span 2;
+}
+
+.poll-form__group {
+    margin: 0;
+    padding: 40px 64px;
+    border: none;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.poll-form__group-title {
+    font-size: 22px;
+    line-height: 32px;
+    color: #fff;
+    margin: 0;
+}
+
+.poll-form__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.poll-form__package-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 27px;
+}
+
+.poll-form__package-item {
+    width: calc(33.33% - 27px* 2/3);
+}
+
+.poll-form__delivery {
+    display: flex;
+    gap: 40px;
+}
+
+.poll-form__left-col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    flex-grow: 1;
+}
+
+.poll-form__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

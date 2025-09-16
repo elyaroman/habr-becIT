@@ -1,0 +1,335 @@
+.not-found {
+  overflow: hidden;
+  $root: &;
+
+  &__wrapper {
+    min-height: 100vh;
+    padding: 50px 0;
+    position: relative;
+  }
+
+  &__stars {
+    animation: starMotion $transition-1000 infinite;
+
+    &--duplicate {
+      #{$root}__star {
+        transform: translateY(-100vh);
+      }
+    }
+  }
+
+  &__star {
+    background-color: $color-white;
+    height: 8px;
+    left: 5%;
+    position: absolute;
+    top: 0;
+    width: 8px;
+
+    &:nth-child(2) {
+      left: 15%;
+      top: 462px;
+    }
+
+    &:nth-child(3) {
+      left: 25%;
+      top: 82px;
+    }
+
+    &:nth-child(4) {
+      left: 35%;
+      top: 352px;
+    }
+
+    &:nth-child(5) {
+      left: 45%;
+      top: 181px;
+    }
+
+    &:nth-child(6) {
+      left: 55%;
+      top: 589px;
+    }
+
+    &:nth-child(7) {
+      left: 65%;
+      top: 349px;
+    }
+
+    &:nth-child(8) {
+      left: 75%;
+      top: 29px;
+    }
+
+    &:nth-child(9) {
+      left: 85%;
+      top: 499px;
+    }
+
+    &:nth-child(10) {
+      left: 95%;
+      top: 199px;
+    }
+  }
+
+  &__boss {
+    left: calc(50% - 220px);
+    position: absolute;
+    top: -170px;
+    z-index: 2;
+    opacity: 0;
+    animation: slideInDown $transition-500 1s forwards,
+      hitDevil $transition-500 2.3s, hitDevil $transition-500 3.1s, hitDevil $transition-500 3.9s,
+      failureDevil $transition-500 4.4s forwards;
+  }
+
+  &__link {
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    animation: slideInDown $transition-500 forwards;
+  }
+
+  &__icon {
+    height: 32px;
+    width: 180px;
+  }
+
+  &__note-inner {
+    bottom: 30px;
+    font-size: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    animation: slideInUp $transition-500 0.5s forwards;
+  }
+
+  &__note {
+    display: flex;
+  }
+
+  &__note-accent {
+    color: $color-light-green;
+  }
+
+  &__bullet {
+    background-color: $color-light-green;
+    bottom: 200px;
+    display: flex;
+    height: 20px;
+    left: calc(50% - 7px);
+    bottom: 249px;
+    opacity: 0;
+    position: absolute;
+    width: 20px;
+    animation: bulletShot $transition-300 2s;
+
+    &:nth-child(2) {
+      transform: scale(2);
+      animation: bulletShot $transition-300 2.8s;
+    }
+
+    &:nth-child(3) {
+      transform: scale(3);
+      animation: bulletShot $transition-300 3.6s;
+    }
+  }
+
+  &__rocket {
+    bottom: 60px;
+    left: calc(50% - 105px);
+    position: absolute;
+    opacity: 0;
+    animation: slideInUp $transition-500 1.5s forwards;
+  }
+
+  &__rocket-fire {
+    transform: scaleX(1);
+    transform-origin: center;
+    animation: fireFlashes $transition-500 1.5s infinite;
+  }
+
+  &__return {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+
+    &::before {
+      background-color: $color-light-green;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      opacity: 0;
+
+      animation: fillBackground $transition-500 4.9s forwards;
+    }
+  }
+
+  &__btn {
+    background-color: $color-black-pearl;
+    border-radius: 8px;
+    color: $color-white;
+    display: flex;
+    font-family: $ff-play;
+    font-size: 22px;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 32px;
+    padding: 16px;
+    width: 340px;
+    position: relative;
+
+    opacity: 0;
+    pointer-events: none;
+    animation: bounceIn $transition-500 5.4s forwards;
+  }
+}
+
+@keyframes starMotion {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fireFlashes {
+
+  0%,
+  50%,
+  100% {
+    transform: scaleX(1);
+  }
+
+  25%,
+  75% {
+    transform: scaleX(1.5);
+  }
+}
+
+@keyframes bulletShot {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-225px);
+  }
+}
+
+@keyframes hitDevil {
+
+  0%,
+  50%,
+  100% {
+    transform: scale(1);
+  }
+
+  25%,
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes failureDevil {
+
+  0%,
+  50% {
+    transform: scale(1);
+  }
+
+  25%,
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes fillBackground {
+  0% {
+    opacity: 0;
+    clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: polygon(100% 100%, 100% 0, 0 0, 0 100%);
+  }
+}
+
+@keyframes bounceIn {
+
+  0% {
+    opacity: 0;
+    transform: scaleX(1);
+    pointer-events: all;
+  }
+
+  25% {
+    opacity: 1;
+    transform: scaleX(1.3);
+    pointer-events: all;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+    pointer-events: all;
+  }
+
+  75% {
+    opacity: 1;
+    transform: scaleX(1.3);
+    pointer-events: all;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+    pointer-events: all;
+  }
+}

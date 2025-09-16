@@ -1,0 +1,87 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  // background-color: $color-light-green;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  .form-order--success & {
+    & {
+      pointer-events: none;
+    }
+    
+    &__text,
+    &__icon {
+      animation: slideDown $transition-300 forwards;
+    }
+
+    &::before {
+      animation: growBackground $transition-300 0.4s forwards;
+    }
+  }
+
+  &[disabled] {
+    color: rgba(0, 0, 0, 0.4);
+    background-color: $color-white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    background-color: $color-pastel-green;
+  }
+
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $color-light-green;
+    z-index: 1;
+    transition: background-color $transition-300;
+  }
+
+  &__text {
+    font-size: 22px;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 32px;
+    color: $color-black;
+    z-index: 2;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(0, 40px);
+    opacity: 0;
+  }
+}
+
+@keyframes growBackground {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2, 21);
+  }
+}

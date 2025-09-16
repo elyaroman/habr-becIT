@@ -1,0 +1,117 @@
+.btn {
+  position: relative;
+  align-items: center;
+  background-color: $color-white;
+  border: 1px solid rgba($color-black, 0.4);
+  border-radius: 40px;
+  color: $color-black;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  font-family: "Play", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  gap: 16px;
+  justify-content: center;
+  line-height: 24px;
+  padding: 16px;
+  user-select: none;
+  outline: none;
+  width: 318px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: fadeInLeft 2s ease forwards;
+  transition: border $transition-300, background-color $transition-300;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: clip-path $transition-300, background-color $transition-300;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: $color-black;
+  }
+
+  &[disabled],
+  &--disabled {
+    background-color: $color-white;
+    pointer-events: none;
+    color: rgba($color-black, 0.4);
+  }
+
+  &--m {
+    font-size: 22px;
+    line-height: 32px;
+    border-radius: 8px;
+    width: 340px;
+  }
+
+  &--xl {
+    border: none;
+    font-size: 24px;
+    width: 286px;
+    min-height: 238px;
+  }
+
+  &--alternate-font {
+    font-family: "Press Start 2P", "Arial", sans-serif;
+    font-weight: 400;
+  }
+
+  &--violet {
+    background-color: $color-perano;
+
+    &:hover::before,
+    &:focus-visible::before {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      background-color: $color-light-slate-blue;
+    }
+  }
+
+  &--green {
+    background-color: $color-light-green;
+
+    &:hover::before,
+    &:focus-visible::before {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      background-color: $color-pastel-green;
+    }
+  }
+
+  &--orange {
+    background-color: $color-turbo;
+    
+    &:hover::before,
+    &:focus-visible::before {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      background-color: $color-moon-yellow;
+    }
+  }
+
+  &__text,
+  &__icon {
+    z-index: 10;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
